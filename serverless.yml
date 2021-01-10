@@ -1,5 +1,5 @@
 
-service: hylet
+service: funee
 
 custom:
   secrets: ${file(secrets.json)}
