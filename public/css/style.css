@@ -1,0 +1,7 @@
+
+.responses{
+    float:left;
+    width:inherit;
+    overflow-y: auto;
+    height: 380px;    
+}

@@ -1,0 +1,113 @@
+.text-d{
+    color: #28262c;
+}
+
+.text-y{
+    color: #F7B733;
+}
+
+.text-o{
+    color: #FC4A1A;
+}
+
+.text-w{
+    color: #f9f5ff;
+}
+
+.text-lw{
+    color: #DFDCE3;
+}
+
+.text-b{
+    color: #4ABDAC;
+}
+
+.bg-d{
+    background-color: #28262c;
+}
+
+.bg-y{
+    background-color: #F7B733;
+}
+
+.bg-o{
+    background-color: #FC4A1A;
+}
+
+.bg-w{
+    background-color: #f9f5ff;
+}
+
+.bg-lw{
+    background-color: #DFDCE3;
+}
+
+
+.bg-b{
+    background-color: #4ABDAC;
+}
+
+.border-d{
+    border-color: #28262c;
+}
+
+.border-y{
+    border-color: #F7B733;
+}
+
+.border-o{
+    border-color: #FC4A1A 2px solid;
+}
+
+.border-w{
+    border-color:#f9f5ff;
+}
+
+.border-lw{
+    border-color: #DFDCE3;
+}
+
+
+
+.border-b{
+    border-color: #4ABDAC;
+}
+
+
+
+.hv-d:hover{
+    color: #28262c;
+}
+
+.hv-y:hover{
+    color: #F7B733;
+}
+
+.hv-o:hover{
+    color: #FC4A1A;
+}
+
+.hv-w:hover{
+    color: #f9f5ff;
+}
+
+.hv-b:hover{
+    color: #4ABDAC;
+}
+
+.hv.lw:hover{
+    color: #DFDCE3;
+}
+
+.bg-grad-o{
+    background-image: linear-gradient(to bottom, #fc4a1a, #fd5528, #fe5f34, #ff6840, #ff714b);
+}
+
+.bg-grad-b{
+    background-image: linear-gradient(to bottom, #4abdac, #42c5b1, #37ccb5, #29d4ba, #12dcbe);
+}
+
+.time-text {
+    float: right;
+    color: #aaa;
+  }
