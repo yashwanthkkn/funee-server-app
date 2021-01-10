@@ -56,7 +56,7 @@
 }
 
 .border-o{
-    border-color: #FC4A1A 2px solid;
+    border: #FC4A1A 2px solid;
 }
 
 .border-w{
@@ -70,7 +70,8 @@
 
 
 .border-b{
-    border-color: #4ABDAC;
+    border: solid 2px #4ABDAC;
+    
 }
 
 
@@ -107,7 +108,7 @@
     background-image: linear-gradient(to bottom, #4abdac, #42c5b1, #37ccb5, #29d4ba, #12dcbe);
 }
 
-.time-text {
+.text-time {
     float: right;
     color: #aaa;
   }

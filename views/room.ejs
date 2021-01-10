@@ -1,0 +1,92 @@
+<%- include("partials/header") %>
+<%- include("partials/nav") %>
+<div class="container">
+    <div class="content-box px-3 py-4">
+        <div class="row">
+            <div class="col-12 h3 text-o">
+                Room
+            </div>
+        </div>
+        <!-- ROW 3  -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card bg-w px-2 text-w">
+                    <div class="row">
+                        <div class="card col-12 bg-b">
+                            <div>
+                                <h4 class="text-center text-w">#LifeAtKec</h4>
+                            </div>
+                        </div>
+                    </div>   
+                </div>
+            </div>
+        </div>
+        <!-- ROW 3 / -->
+        <!-- ROW 4  -->
+        <div class="row">
+            <div class="col-12 mt-3">
+                <div class="row chat" id="chat">
+                    <div class="col-12 mt-3">
+                        <div class="card px-2 py-2 bg-w">
+                            <p class="text-b"><strong>Vicky</strong> <span class="text-time text-left">3.22 pm</span></p> 
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sit omnis, earum eaque numquam accusantium fugiat corrupti deleniti commodi aperiam, eligendi suscipit beatae praesentium. Reiciendis, illo repellendus. Placeat, excepturi culpa.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-12 mt-3">
+                        <div class="card px-2 py-2 bg-w">
+                            <p class="text-b"><strong>Vicky</strong> <span class="text-time text-left">3.22 pm</span></p> 
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sit omnis, earum eaque numquam accusantium fugiat corrupti deleniti commodi aperiam, eligendi suscipit beatae praesentium. Reiciendis, illo repellendus. Placeat, excepturi culpa.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-12 mt-3">
+                        <div class="card px-2 py-2 bg-w">
+                            <p class="text-b"><strong>Vicky</strong> <span class="text-time text-left">3.22 pm</span></p> 
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sit omnis, earum eaque numquam accusantium fugiat corrupti deleniti commodi aperiam, eligendi suscipit beatae praesentium. Reiciendis, illo repellendus. Placeat, excepturi culpa.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-12 mt-3">
+                        <div class="card px-2 py-2 bg-w">
+                            <p class="text-b"><strong>Vicky</strong> <span class="text-time text-left">3.22 pm</span></p> 
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sit omnis, earum eaque numquam accusantium fugiat corrupti deleniti commodi aperiam, eligendi suscipit beatae praesentium. Reiciendis, illo repellendus. Placeat, excepturi culpa.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-12 mt-3">
+                        <div class="card px-2 py-2 bg-w">
+                            <p class="text-b"><strong>Vicky</strong> <span class="text-time text-left">3.22 pm</span></p> 
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sit omnis, earum eaque numquam accusantium fugiat corrupti deleniti commodi aperiam, eligendi suscipit beatae praesentium. Reiciendis, illo repellendus. Placeat, excepturi culpa.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 mt-2">
+                <div class="row">
+                    <div class="col-12 mt-3">
+                        <form action="" method="POST">
+                            <div class="input-group">          
+                                <input type="text" class="form-control" placeholder="Enter Message">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fas fa-paper-plane text-b mr-2"></i>Send</div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>    
+            </div>      
+        </div>
+        <!-- ROW 4 / -->
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(window).on('load', function() {
+        var chatEl = document.getElementById("chat");
+        chatEl.scrollTop = chatEl.scrollHeight;
+    });
+    
+</script>
+
+<%- include("partials/footer") %>

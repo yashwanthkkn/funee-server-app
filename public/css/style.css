@@ -1,7 +1,8 @@
-
-.responses{
-    float:left;
-    width:inherit;
+.chat{
+    width: inherit;
+    float: left;
     overflow-y: auto;
-    height: 380px;    
+    overflow-x: hidden;
+    height: 350px;
+    scrollbar-width: thin;
 }
