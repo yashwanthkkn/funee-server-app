@@ -14,9 +14,10 @@
                 <div class="row responses mt-4">
                   <%  link.responses.forEach(res=>{ %>
                         <div class="col-12">
-                            <div class="card px-3 py-3">    
-                                <p class="strong">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus rerum amet, voluptatibus, at consequuntur iure libero minus, ab nemo tempore quasi itaque ipsum impedit aut. Libero distinctio totam aperiam ipsa?</p>
-                                <p class="text-left text-time">8.33 pm</p>
+                            <div class="card px-3 py-2 mt-3">    
+                                <p class="strong"><%=res.response%></p>
+                                <% var time = moment(res.time).calendar();%>
+                                <p class="text-left text-time"><%=time%></p>
                             </div>
                         </div>
                    <% }) %>

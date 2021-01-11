@@ -10,15 +10,21 @@
         <!-- ROW 2 -->
         <div class="row">
             <div class="col-12 px-2 py-3 mt-3 border rounded">
-                <h5 class="text-b text-center">What do you think about me</h5>
-                <form action="" method="POST">
-                    <div class="form-group">
-                        <textarea name="data" id="data" cols="30" rows="5" class="form-control"></textarea>
-                    </div>
-                    <div class="text-center">
-                        <button class="btn bg-b text-w hv-w">Send Message</button>
-                    </div>
-                </form>
+                <%if(msg){%>
+                    <p class="my-3 text-center text-o"><%=msg%></p>
+                    <h4 class="text-b text-center">Let's find out what people want to tell you</h4>
+                    <h5 class="mt-5 text-b text-center"> CLICK THE LINK BELOW | GET YOUR LINK</h5>
+                <%}else{%>
+                    <h5 class="text-b text-center"><%=link.caption%></h5>
+                    <form action="/public/link/addComment/<%=link.uuid%>" method="POST">
+                        <div class="form-group">
+                            <textarea name="response" id="response" cols="30" rows="5" class="form-control" required></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button class="btn bg-b text-w hv-w">Send Message</button>
+                        </div>
+                    </form>
+                <%}%>
             </div>
         </div>
         <hr>
@@ -29,7 +35,9 @@
                 <div class="card bg-b px-2 py-3 text-w">
                     <div class="text-center">
                         <h5>Want to have your own Link ?</h5> 
-                        <button class="btn btn-block bg-o text-w mt-3 px-2 py-2 hv-w">Create My Link</button>
+                        <a href="/signup">
+                            <button class="btn btn-block bg-o text-w mt-3 px-2 py-2 hv-w">Create My Link</button>
+                        </a>
                     </div>
                 </div>
             </div>

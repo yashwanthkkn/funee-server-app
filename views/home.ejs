@@ -24,22 +24,27 @@
         <!-- ROW 2 / -->
         <!-- ROW 3  -->
         <div class="row">
-            <div class="col-12 px-2 py-1 mt-4">
-                <div class="text-center h3 text-b">My Links</div>
+            <div class="col-12 px-2 py-1 mt-3">
+                <div class="text-center h3 text-b">My Links </div>               
             </div>
             <div class="col-12">
                 <%links.forEach(link=>{%>
-                    <div class="card bg-b px-2 py-3 text-w">
+                    <div class="card bg-b px-2 py-2 pb-3 text-w">
                         <div class="row">          
                             <div class="col-12">
-                                <input type="text" name="sharable" class="form-control" id="share" value="http://localhost:3000/link/<%=link.uuid%>" readonly>
+                                <div class="text-right mb-2">
+                                    <a href="/link/remove/<%=link.uuid%>" title="Delete this Link">
+                                        <button class="btn btn-danger">X</button>
+                                    </a>
+                                </div>
+                                <input type="text" name="sharable" class="form-control" id="share" value="http://localhost:3000/public/link/<%=link.uuid%>" readonly>
                             </div>
                             <div class="col-12 mt-3">
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="text-center">
                                             <a href="/user/responses/<%=link.uuid%>">
-                                                <button class="btn bg-o text-w"><span class="bg-w text-o rounded px-2 my-2"><%=link.responses.length + 1%></span> Responses</button>
+                                                <button class="btn bg-o text-w"><span class="bg-w text-o rounded px-2 my-2"><%=link.responses.length%></span> Responses</button>
                                             </a>
                                         </div>
                                     </div>
