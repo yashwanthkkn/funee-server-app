@@ -28,29 +28,31 @@
                 <div class="text-center h3 text-b">My Links</div>
             </div>
             <div class="col-12">
-                <div class="card bg-b px-2 py-3 text-w">
-                    <div class="row">
-                        
-                        <div class="col-12">
-                            <input type="text" name="sharable" class="form-control" id="share" value="https://something.com/someother" readonly>
-                        </div>
-                      
-                        <div class="col-12 mt-3">
-                            <div class="row">
-                                <div class="col-6">
-                                    <div class="text-center">
-                                        <button class="btn bg-o text-w"><span class="bg-w text-o rounded px-2 my-2">24</span> Responses</button>
+                <%links.forEach(link=>{%>
+                    <div class="card bg-b px-2 py-3 text-w">
+                        <div class="row">          
+                            <div class="col-12">
+                                <input type="text" name="sharable" class="form-control" id="share" value="http://localhost:3000/link/<%=link.uuid%>" readonly>
+                            </div>
+                            <div class="col-12 mt-3">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="text-center">
+                                            <a href="/user/responses/<%=link.uuid%>">
+                                                <button class="btn bg-o text-w"><span class="bg-w text-o rounded px-2 my-2"><%=link.responses.length + 1%></span> Responses</button>
+                                            </a>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="text-center">
-                                        <button class="btn bg-o text-w" id="shareBtn" onclick="copyText('hello')">Copy Link</button>
+                                    <div class="col-6">
+                                        <div class="text-center">
+                                            <button class="btn bg-o text-w" id="shareBtn" onclick="copyText('hello')">Copy Link</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                <%})%>
             </div>
         </div>
         <!-- ROW 3 / -->
@@ -71,7 +73,7 @@
                   <div class="text-center h4 text-b">Add Caption</div>
               </div>
               <div class="col-12 mt-2">
-                  <form action="" method="POST">
+                  <form action="/link/getLink" method="POST">
                       <div class="form-group">
                           <input type="text" name="caption" id="caption" placeholder="Eg. What do you think about me" class="form-control">
                       </div>
