@@ -11,13 +11,21 @@
   "author": "Yashwanth K",
   "license": "ISC",
   "dependencies": {
+    "amazon-cognito-identity-js": "^4.5.7",
     "body-parser": "^1.19.0",
+    "connect-mongo": "^3.2.0",
     "cors": "^2.8.5",
     "ejs": "^3.1.5",
     "express": "^4.17.1",
+    "express-session": "^1.17.1",
     "helmet": "^4.3.1",
     "mongoose": "^5.11.9",
-    "serverless-http": "^2.6.0"
+    "node-fetch": "^2.6.1",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^6.1.0",
+    "serverless-http": "^2.6.0",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "serverless-offline": "^6.8.0"
