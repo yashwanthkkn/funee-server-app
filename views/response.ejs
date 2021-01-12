@@ -3,8 +3,17 @@
 <div class="container">
     <div class="content-box px-3 py-4">
         <div class="row">
-            <div class="col-12 h3 text-o">
+            <div class="col-6 h3 text-o">
                 My Responses
+            </div>
+            <div class="col-6 text-right">
+                <%if(!user){%>
+                    <div class="toggle-buttons ml-auto text-w">
+                      <a href="/login" id="n-link">
+                          <button class="btn bg-o text-w mr-2 mr-2 hv-w">Get My Link</button>
+                      </a>
+                  </div>
+                  <%}%>
             </div>
         </div>
         <!-- ROW 2 -->

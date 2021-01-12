@@ -6,3 +6,7 @@
     height: 350px;
     scrollbar-width: thin;
 }
+
+.border-circle{
+    border-radius: 50%;
+}

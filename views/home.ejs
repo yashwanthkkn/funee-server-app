@@ -4,8 +4,13 @@
 <div class="container">
     <div class="content-box px-3 py-4">
         <div class="row">
-            <div class="col-12 h3 text-o">
+            <div class="col-6 h3 text-o">
             Home
+            </div>
+            <div class="col-6 text-o h5 text-right">
+                <a href="" class="text-o">
+                    <i class="fas fa-sync"></i>
+                </a>
             </div>
         </div>
         <!-- ROW 2 -->
@@ -25,16 +30,27 @@
         <!-- ROW 3  -->
         <div class="row">
             <div class="col-12 px-2 py-1 mt-3">
-                <div class="text-center h3 text-b">My Links </div>               
+                <div class="text-center h3 text-b">My Links</div>               
             </div>
             <div class="col-12">
                 <%links.forEach(link=>{%>
-                    <div class="card bg-b px-2 py-2 pb-3 text-w">
-                        <div class="row">          
+                    <div class="card bg-b px-2 py-2 pb-3 text-w mt-2">
+                        <div class="row">    
                             <div class="col-12">
                                 <div class="text-right mb-2">
+                                    <%if(link.privacy == 'public'){%>
+                                        <button class="bg-y text-w border-b btn-sm mr-2 border-circle" onclick="alert('Others Can not See Your Resposes')"><i>i</i></button>
+                                        <a href="/link/privacy/toggle/<%=link.uuid%>" class="mr-3">
+                                            <button class="btn bg-y btn-sm">Make Private</button>
+                                        </a>
+                                    <%}else{%>
+                                        <button class="bg-y text-w border-b btn-sm mr-2 border-circle" onclick="alert('Others Can See Your Resposes')"><i>i</i></button>
+                                        <a href="/link/privacy/toggle/<%=link.uuid%>" class="mr-3">
+                                            <button class="btn bg-y btn-sm">Make Public</button>
+                                        </a>
+                                    <%}%>
                                     <a href="/link/remove/<%=link.uuid%>" title="Delete this Link">
-                                        <button class="btn btn-danger">X</button>
+                                        <button class="btn btn-danger btn-sm">X</button>
                                     </a>
                                 </div>
                                 <input type="text" name="sharable" class="form-control" id="share" value="http://localhost:3000/public/link/<%=link.uuid%>" readonly>
@@ -81,6 +97,10 @@
                   <form action="/link/getLink" method="POST">
                       <div class="form-group">
                           <input type="text" name="caption" id="caption" placeholder="Eg. What do you think about me" class="form-control">
+                      </div>
+                      <div class="form-group">
+                          <input type="checkbox" name="privacy" id="privacy" checked>
+                          <label for="privacy">Let others see my responses</label>
                       </div>
                       <div class="text-center">
                           <small class="text-o">People will see this while adding comments</small>

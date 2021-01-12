@@ -12,6 +12,13 @@
             <div class="col-12 px-2 py-3 mt-3 border rounded">
                 <%if(msg){%>
                     <p class="my-3 text-center text-o"><%=msg%></p>
+                    <%if(link.privacy == 'public'){%>
+                        <div class="text-center">
+                            <a href="/public/link/responses/<%=link.uuid%>">
+                                <button class="btn bg-b text-w hv-w my-2">View Other Responses</button>
+                            </a>
+                        </div>
+                    <%}%>
                     <h4 class="text-b text-center">Let's find out what people want to tell you</h4>
                     <h5 class="mt-5 text-b text-center"> CLICK THE LINK BELOW | GET YOUR LINK</h5>
                 <%}else{%>
