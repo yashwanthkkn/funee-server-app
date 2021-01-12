@@ -3,12 +3,17 @@
 <div class="container">
     <div class="content-box px-3 py-4">
         <div class="row">
-            <div class="col-12 h3 text-o">
+            <div class="col-6 h3 text-o">
                 Confessions
             </div>
+            <%if(user){%>
+                <div class="col-6 text-right">
+                    <button class="btn bg-o text-w hv-w" data-toggle="modal" data-target="#addTopic">Add Topic</button>
+                </div>
+            <%}%>
         </div>
         <!-- ROW 3  -->
-        <div class="row">
+        <div class="row mt-2">
             <div class="col-12">
                 <div class="card bg-w px-2 text-w">
                     <div class="row">
@@ -25,46 +30,81 @@
                     </div>   
                 </div>
             </div>
-
-            <div class="col-12 mt-3">
-                <div class=" px-2 py-2">
-                    <div class="row">
-                        <div class="col-4">
-                            <div class="topic text-b"><p class="mt-2"><strong>#LifeAtKec</strong></p> </div>
+            <%topics.forEach(topic=>{%>
+                <div class="card col-12 mt-4">
+                    <div class="row px-2 py-2 text-center">
+                        <div class="col-6">
+                            <div class="text-left h5 text-b ml-3">
+                               <strong><%=topic.title%></strong> 
+                            </div>
                         </div>
-                        <div class="col-4">
-                           <a href="">
-                               <button class="btn bg-b text-w hv-w">View Room</button>
-                           </a>
+                        <div class="col-6">
+                            <div class="mr-0 text-b">
+                                <p><%=topic.total%> Comments</p> 
+                            </div>
                         </div>
-                        <div class="col-4">
-                            <p class="text-b mt-2">233 replies</p>
+                        <div class="col-4 mt-1">
+                                <span class="bg-w text-o rounded px-1 my-2 mr-1"><%=topic.side1Count%></span>
+                                <p class="bg-o text-w rounded"><%=topic.side1%></p>
                         </div>
-                    </div>      
+                        <div class="col-4 mt-1">
+                            <a href="">
+                                <button class="btn bg-b text-w hv-w">View Room</button>
+                            </a>
+                        </div>
+                        <div class="col-4 mt-1">
+                            <span class="bg-w text-o rounded px-1 my-2 mr-1"><%=topic.side2Count%></span>
+                            <p class="bg-o text-w rounded"><%=topic.side2%></p>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            <%})%>
+            
 
-            <div class="col-12 mt-3">
-                <div class=" px-2 py-2">
-                    <div class="row">
-                        <div class="col-4">
-                            <div class="topic text-b"><p class="mt-2"><strong>#toDearExtroverts</strong></p> </div>
-                        </div>
-                        <div class="col-4">
-                           <a href="">
-                               <button class="btn bg-b text-w hv-w">View Room</button>
-                           </a>
-                        </div>
-                        <div class="col-4">
-                            <p class="text-b mt-2">122 replies</p>
-                        </div>
-                    </div>      
-                </div>
-            </div>
 
         </div>
         <!-- ROW 3 / -->
     </div>
 </div>
+<%if(user){%>
+    <div class="modal fade" id="addTopic" tabindex="-1" role="dialog" aria-labelledby="addTopicLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-o text-center" id="addTopicLabel">Topic</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form action="/topic/addTopic" method="POST">
+                    <div class="form-group">
+                        <div class="h4 text-center text-b" >
+                            Topic for Discussion
+                        </div>
+                        <input type="text" class="form-control" name="title" id="title" placeholder="eg. NewNormal" required maxlength="15">
+                    </div>
+                    <div class="h4 text-center text-b" >
+                        Sides
+                    </div>
+                    <div class="row">
+                        <div class="col-6">     
+                            <input type="text" class="form-control" placeholder="eg. Loving it!" required maxlength="10" name="side1">
+                        </div>
+                        <div class="col-6">
+                            <input type="text" class="form-control" placeholder="eg. It sucks!" required maxlength="10" name="side2">
+                        </div>
+                    </div>
+                    <div class="text-center mt-3">
+                        <button class="btn bg-b text-w hv-w">Add Topic</button>
+                    </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+            </div>
+          </div>
+        </div>
+      </div>
+<%}%>
 
 <%- include("partials/footer") %>
