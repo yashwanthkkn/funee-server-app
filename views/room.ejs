@@ -14,7 +14,7 @@
                     <div class="row">
                         <div class="card col-12 bg-b">
                             <div>
-                                <h4 class="text-center text-w">#LifeAtKec</h4>
+                                <h4 class="text-center text-w"><%=topic.title%></h4>
                             </div>
                         </div>
                     </div>   
@@ -24,58 +24,43 @@
         <!-- ROW 3 / -->
         <!-- ROW 4  -->
         <div class="row">
+            <div class="col-12 mt-4">
+                <form action="/topic/room/<%=topic.uuid%>/user/<%=user.uuid%>/addComment" method="POST" id="commentForm">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Add Comment" required maxlength="100" name='comment' id="comment">
+                    </div>
+                    <div class="row text-center">
+                        <div class="col-6">
+                            <button type="button" class="btn bg-b text-w hv-w" onclick="submitForm('s1')"><i class="fas fa-paper-plane mr-1"></i><%=topic.side1%></button>
+                        </div>
+                        <div class="col-6">
+                            <button type="button" class="btn bg-o text-w hv-w" onclick="submitForm('s2')"><i class="fas fa-paper-plane mr-1"></i><%=topic.side2%></button>
+                        </div>
+                    </div>
+                </form>
+            </div>      
             <div class="col-12 mt-3">
                 <div class="row chat" id="chat">
-                    <div class="col-12 mt-3">
-                        <div class="card px-2 py-2 bg-w">
-                            <p class="text-b"><strong>Vicky</strong> <span class="text-time text-left">3.22 pm</span></p> 
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sit omnis, earum eaque numquam accusantium fugiat corrupti deleniti commodi aperiam, eligendi suscipit beatae praesentium. Reiciendis, illo repellendus. Placeat, excepturi culpa.</p>
-                        </div>
-                    </div>
 
-                    <div class="col-12 mt-3">
-                        <div class="card px-2 py-2 bg-w">
-                            <p class="text-b"><strong>Vicky</strong> <span class="text-time text-left">3.22 pm</span></p> 
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sit omnis, earum eaque numquam accusantium fugiat corrupti deleniti commodi aperiam, eligendi suscipit beatae praesentium. Reiciendis, illo repellendus. Placeat, excepturi culpa.</p>
-                        </div>
-                    </div>
-
-                    <div class="col-12 mt-3">
-                        <div class="card px-2 py-2 bg-w">
-                            <p class="text-b"><strong>Vicky</strong> <span class="text-time text-left">3.22 pm</span></p> 
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sit omnis, earum eaque numquam accusantium fugiat corrupti deleniti commodi aperiam, eligendi suscipit beatae praesentium. Reiciendis, illo repellendus. Placeat, excepturi culpa.</p>
-                        </div>
-                    </div>
-
-                    <div class="col-12 mt-3">
-                        <div class="card px-2 py-2 bg-w">
-                            <p class="text-b"><strong>Vicky</strong> <span class="text-time text-left">3.22 pm</span></p> 
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sit omnis, earum eaque numquam accusantium fugiat corrupti deleniti commodi aperiam, eligendi suscipit beatae praesentium. Reiciendis, illo repellendus. Placeat, excepturi culpa.</p>
-                        </div>
-                    </div>
-
-                    <div class="col-12 mt-3">
-                        <div class="card px-2 py-2 bg-w">
-                            <p class="text-b"><strong>Vicky</strong> <span class="text-time text-left">3.22 pm</span></p> 
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sit omnis, earum eaque numquam accusantium fugiat corrupti deleniti commodi aperiam, eligendi suscipit beatae praesentium. Reiciendis, illo repellendus. Placeat, excepturi culpa.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 mt-2">
-                <div class="row">
-                    <div class="col-12 mt-3">
-                        <form action="" method="POST">
-                            <div class="input-group">          
-                                <input type="text" class="form-control" placeholder="Enter Message">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text"><i class="fas fa-paper-plane text-b mr-2"></i>Send</div>
+                    <%comments.forEach(comment=>{%>
+                        <%if(comment.side == topic.side1){%>
+                            <div class="col-12 mt-3">
+                                <div class="card px-2 py-2 bg-w"> 
+                                    <p class="text-b"><strong><i class="fas fa-mask"></i></strong> <span class="text-time-r text-left"><%=moment(comment.createdAt).calendar();%></span></p> 
+                                    <p><%=comment.msg%></p>
                                 </div>
                             </div>
-                        </form>
-                    </div>
-                </div>    
-            </div>      
+                        <%}else{%>
+                            <div class="col-12 mt-3">
+                                <div class="card px-2 py-2 bg-w">  
+                                    <p class="text-o"><span class="text-time-l"><%=moment(comment.createdAt).calendar();%></span> <span><strong><i class="fas fa-mask float-right"></i></strong></span></p> 
+                                    <p><%=comment.msg%></p>
+                                </div>
+                            </div>
+                        <%}%>
+                    <%})%>
+                </div>
+            </div>
         </div>
         <!-- ROW 4 / -->
     </div>
@@ -86,7 +71,7 @@
         var chatEl = document.getElementById("chat");
         chatEl.scrollTop = chatEl.scrollHeight;
     });
-    
 </script>
+<script src="/js/link.js"></script>
 
 <%- include("partials/footer") %>

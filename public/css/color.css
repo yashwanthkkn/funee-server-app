@@ -108,7 +108,12 @@
     background-image: linear-gradient(to bottom, #4abdac, #42c5b1, #37ccb5, #29d4ba, #12dcbe);
 }
 
-.text-time {
+.text-time-r {
     float: right;
+    color: #aaa;
+  }
+
+  .text-time-l {
+    float: left;
     color: #aaa;
   }

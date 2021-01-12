@@ -48,9 +48,15 @@
                                 <p class="bg-o text-w rounded"><%=topic.side1%></p>
                         </div>
                         <div class="col-4 mt-1">
-                            <a href="">
-                                <button class="btn bg-b text-w hv-w">View Room</button>
-                            </a>
+                            <%if(user){%>
+                                <a href="/topic/room/<%=topic.uuid%>">
+                                    <button class="btn bg-b text-w hv-w">View Room</button>
+                                </a>
+                            <%}else{%>
+                                <a href="/signup?redirect=<%=topic.uuid%>">
+                                    <button class="btn bg-b text-w hv-w">View Room</button>
+                                </a>
+                            <%}%>
                         </div>
                         <div class="col-4 mt-1">
                             <span class="bg-w text-o rounded px-1 my-2 mr-1"><%=topic.side2Count%></span>

@@ -1,12 +1,11 @@
-.chat{
-    width: inherit;
-    float: left;
-    overflow-y: auto;
-    overflow-x: hidden;
-    height: 350px;
-    scrollbar-width: thin;
-}
-
 .border-circle{
     border-radius: 50%;
+}
+
+.float-left{
+    float: left;
+}
+
+.float-right{
+    float: right;
 }

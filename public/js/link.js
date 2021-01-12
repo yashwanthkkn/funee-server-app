@@ -22,3 +22,17 @@ function copyText(id){
     copyTextarea.setSelectionRange(0, 99999);
     document.execCommand("copy"); 
 }
+
+function submitForm(side){
+    var form = document.querySelector('#commentForm')
+    var input = document.querySelector('#comment')
+    var temp = form.getAttribute('action') 
+    if(input.value){
+        var url = form.getAttribute('action') + `/${side}`;
+        form.setAttribute('action',url);
+        form.submit();
+    }else{
+        alert("Cannot post an Empty comment");
+    }
+    form.setAttribute('action',temp);
+}
