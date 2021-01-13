@@ -1,0 +1,79 @@
+<%- include("partials/header") %>
+<%- include("partials/nav") %>
+<div class="container">
+    <div class="content-box px-3 py-4">
+        <div class="row">
+            <div class="col-6 h3 text-o">
+                Profile
+            </div>
+        </div>
+        <!-- ROW 2 -->
+        <div class="row">
+            <div class="col-12 text-center">
+                <img src="https://thumbor.forbes.com/thumbor/fit-in/416x416/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5ec595d45f39760007b05c07%2F0x0.jpg%3Fbackground%3D000000%26cropX1%3D989%26cropX2%3D2480%26cropY1%3D74%26cropY2%3D1564" alt="Profile Pic" style="height: 150px; width: 150px; border-radius: 100px;">
+            </div>
+            <div class="col-12 text-center mt-1">
+                <small><i class="fas fa-plus mr-1"></i>Change Picture</small>
+            </div>
+            <%if(msg){%>
+                <div class="col-12 mt-3">
+                    <div class="text-center">
+                        <p class="text-o"><%=msg%></p>
+                    </div>
+                </div>
+            <%}%>
+        </div>
+        <div class="row mt-5">
+            <div class="col-12">
+                <fieldset>
+                    <legend class="text-b">Public</legend>
+                    <label for="name">Username</label>
+                    <form action="/user/addName" method="post">
+                        <div class="row">
+                            <div class="col-7">
+                                <div class="form-group">
+                                    <input type="text" name='name' id='name' value="<%=user.name%>" class="form-control" maxlength="15" placeholder="Name" style="text-transform: lowercase;">
+                                </div>
+                            </div>
+                            <div class="col-5">
+                                <div class="text-center">
+                                    <button class="btn bg-b text-w hv-w">Update Name</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </fieldset>
+            </div>
+            <div class="col-12">
+                <fieldset>
+                    <legend class="text-b">Private</legend>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <span class="form-control"><%=user.email%></span>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="col-12">
+                <fieldset>
+                    <legend class="text-b">Change Password</legend>
+                    <form action="/changePassword" method="post">
+                        <div class="form-group">
+                            <label for="Current Password">Current Password</label>
+                            <input type="password" name="cPassword" id="cPassword" class="form-control" placeholder="Password">
+                        </div>
+                        <div class="form-group">
+                            <label for="Current Password">New Password</label>
+                            <input type="password" name="nPassword" id="nPassword" class="form-control" placeholder="Password">
+                        </div>
+                        <div class="text-center">
+                            <button class="btn bg-b text-w hv-w">Change Password</button>
+                        </div>
+                    </form>
+                </fieldset>
+            </div>
+        </div>
+        <!-- ROW 2 / -->
+    </div>
+</div>
+<%- include("partials/footer") %>
+
