@@ -24,36 +24,62 @@
         <!-- ROW 3 / -->
         <!-- ROW 4  -->
         <div class="row">
-            <div class="col-12 mt-4">
-                <form action="/topic/room/<%=topic.uuid%>/user/<%=user.uuid%>/addComment" method="POST" id="commentForm">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Add Comment" required maxlength="100" name='comment' id="comment">
-                    </div>
-                    <div class="row text-center">
-                        <div class="col-6">
-                            <button type="button" class="btn bg-b text-w hv-w" onclick="submitForm('s1')"><i class="fas fa-paper-plane mr-1"></i><%=topic.side1%></button>
+            <%if(user){%>
+                <div class="col-12 mt-4">
+                    <form action="/topic/room/<%=topic.uuid%>/user/<%=user.uuid%>/addComment" method="POST" id="commentForm">
+                        <div class="row">
+                            <div class="col-9">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Add Comment" required maxlength="100" name='comment' id="comment">
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group mt-2">
+                                    <input type="checkbox" name="type" id="type" checked>
+                                    <label for="type">Private</label>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-6">
-                            <button type="button" class="btn bg-o text-w hv-w" onclick="submitForm('s2')"><i class="fas fa-paper-plane mr-1"></i><%=topic.side2%></button>
+
+                        <div class="row text-center">
+                            <div class="col-6">
+                                <button type="button" class="btn bg-b text-w hv-w" onclick="submitForm('s1')"><i class="fas fa-paper-plane mr-1"></i><%=topic.side1%></button>
+                            </div>
+                            <div class="col-6">
+                                <button type="button" class="btn bg-o text-w hv-w" onclick="submitForm('s2')"><i class="fas fa-paper-plane mr-1"></i><%=topic.side2%></button>
+                            </div>
                         </div>
-                    </div>
-                </form>
-            </div>      
+                    </form>
+                </div>      
+            <%}%>
             <div class="col-12 mt-3">
                 <div class="row chat" id="chat">
-
                     <%comments.forEach(comment=>{%>
                         <%if(comment.side == topic.side1){%>
                             <div class="col-12 mt-3">
                                 <div class="card px-2 py-2 bg-w"> 
-                                    <p class="text-b"><strong><i class="fas fa-mask"></i></strong> <span class="text-time-r text-left"><%=moment(comment.createdAt).calendar();%></span></p> 
+                                    <p class="text-w">
+                                        
+                                       <% if(comment.type == 'private'){%>
+                                            <strong><i class="fas fa-mask bg-b px-2 py-2 border-circle"></i></strong> 
+                                        <%}else{%>
+                                            <strong class="text-b"><%=comment.ownerName%></strong> 
+                                        <%}%>
+                                        <span class="text-time-r"><%=moment(comment.createdAt).calendar();%></span>
+                                    </p> 
                                     <p><%=comment.msg%></p>
                                 </div>
                             </div>
                         <%}else{%>
                             <div class="col-12 mt-3">
                                 <div class="card px-2 py-2 bg-w">  
-                                    <p class="text-o"><span class="text-time-l"><%=moment(comment.createdAt).calendar();%></span> <span><strong><i class="fas fa-mask float-right"></i></strong></span></p> 
+                                    <p class="text-w ">
+                                        <% if(comment.type == 'private'){%>
+                                            <strong><i class="fas fa-mask bg-o px-2 py-2 border-circle float-right"></i></strong> 
+                                        <%}else{%>
+                                            <strong class="text-o float-right"><%=comment.ownerName%></strong> 
+                                        <%}%>
+                                        <span class="text-time-l"><%=moment(comment.createdAt).calendar();%></span> 
                                     <p><%=comment.msg%></p>
                                 </div>
                             </div>
@@ -61,6 +87,19 @@
                     <%})%>
                 </div>
             </div>
+            <%if(!user){%>
+                <div class="col-12 mt-3">
+                    <div class="card bg-b text-w hv-w py-4">
+                        <div class="text-center">
+                           <h4>To View More</h4> 
+                           <a href="/signup?redirect=<%=topic.uuid%>">
+                            <button class="btn bg-o text-w hv-w mt-1">Signup</button>
+                           </a>
+                        </div>
+                    </div>
+                </div>
+            <%}%>
+            
         </div>
         <!-- ROW 4 / -->
     </div>

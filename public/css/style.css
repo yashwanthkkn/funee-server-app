@@ -4,8 +4,10 @@
 
 .float-left{
     float: left;
+    border-radius: 50%;
 }
 
 .float-right{
     float: right;
+    border-radius: 50%;
 }
