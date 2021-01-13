@@ -61,11 +61,13 @@
                                     <p class="text-w">
                                         
                                        <% if(comment.type == 'private'){%>
-                                            <strong><i class="fas fa-mask bg-b px-2 py-2 border-circle"></i></strong> 
+                                            <strong>
+                                                <i class="fas fa-mask bg-b px-2 py-2 border-circle"></i>
+                                            </strong> 
                                         <%}else{%>
                                             <strong class="text-b"><%=comment.ownerName%></strong> 
                                         <%}%>
-                                        <span class="text-time-r"><%=moment(comment.createdAt).calendar();%></span>
+                                        <span class="text-time-r"><%=moment(comment.createdAt).calendar();%> <i class="fas fa-ellipsis-v ml-3"></i></span>
                                     </p> 
                                     <p><%=comment.msg%></p>
                                 </div>
@@ -75,9 +77,15 @@
                                 <div class="card px-2 py-2 bg-w">  
                                     <p class="text-w ">
                                         <% if(comment.type == 'private'){%>
-                                            <strong><i class="fas fa-mask bg-o px-2 py-2 border-circle float-right"></i></strong> 
+                                            <strong class="float-right">
+                                                <i class="fas fa-mask bg-o px-2 py-2 border-circle mr-3 "></i>
+                                                <i class="fas fa-ellipsis-v text-time-r mt-2"></i>
+                                            </strong> 
+                                            
                                         <%}else{%>
-                                            <strong class="text-o float-right"><%=comment.ownerName%></strong> 
+                                            <strong class="text-o float-right"><%=comment.ownerName%>
+                                                <i class="fas fa-ellipsis-v ml-3 text-time-r mt-1"></i>
+                                            </strong> 
                                         <%}%>
                                         <span class="text-time-l"><%=moment(comment.createdAt).calendar();%></span> 
                                     <p><%=comment.msg%></p>

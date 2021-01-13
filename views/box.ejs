@@ -3,13 +3,19 @@
 <div class="container">
     <div class="content-box px-3 py-4">
         <div class="row">
-            <div class="col-6 h3 text-o">
+            <div class="col-4 h3 text-o">
                 Home
             </div>
             <%if(user){%>
-                <div class="col-6 text-right">
+                <div class="col-4 text-right">
+                    <a href="/user/mylinks">
+                        <button class="btn bg-o text-w hv-w">Get Link</button>
+                    </a>
+                </div>
+                <div class="col-4 text-right">
                     <button class="btn bg-o text-w hv-w" data-toggle="modal" data-target="#addTopic">Add Topic</button>
                 </div>
+
             <%}%>
         </div>
         <!-- ROW 3  -->
@@ -22,11 +28,6 @@
                                 <h4 class="text-center text-w">Top</h4>
                             </div>
                         </div>
-                        <!-- <div class="card col-6 ">
-                            <div>
-                                <h4 class="text-center text-b">Recent</h4>
-                            </div>
-                        </div> -->
                     </div>   
                 </div>
             </div>

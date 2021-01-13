@@ -23,23 +23,26 @@
             <div class="box bg-white text-center">
                 <div class=" h1 text-b"><i class="fas fa-compass text-l"></i> Funee</div>
                 <div class="h4 mt-4 text-o">Email Verification</div>             
-                <form id="login" class="mt-4" method="POST" action="/auth/loginUser">
+                <form class="mt-4" method="POST" action="/verifyEmail">
                     <div class="input-group">
                         <div class="input-group-prepend">
-                            <div class="input-group-text text-o"><i class="fas fa-user"></i></div>
+                            <div class="input-group-text text-o"><i class="fas fa-key"></i></div>
                         </div>
                         <input type="number" name="code" id="code" placeholder="Enter Verification Code" class="form-control" required>
+                    </div>
+                    <div class="text-center">
+                      <%if(msg){%>
+                        <small class="text-o mt-3"><%=msg%></small>
+                      <%}%>
                     </div>
                     <div class="text-center mt-4">
                         <button class="btn bg-b text-w hv-l">Verify Code</button>
                     </div>
-                    <% if(msg) { %>
-                      <div class="text-center mt-2 text-danger">
-                        <p>Invalid Email or Password</p>
-                      </div>
-                      <% } %>
                 </form>
                 <hr>
+                <div class="text-center">
+                  <p class="text-b">Didn't get the Code ? <a href="/resendEmailCode" class="text-o">Resend Code</a></p>
+                </div>
             </div>
           </div>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
