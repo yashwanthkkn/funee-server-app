@@ -41,7 +41,12 @@
                         </div>
                         <div class="col-6">
                             <div class="mr-0 text-b">
-                                <p><%=topic.total%> Comments</p> 
+                                <span><%=topic.total%> Comments</span>
+                                <%if(topic.owner == user.uuid){%>
+                                    <a href="/topic/removeTopic/<%=topic.uuid%>">
+                                        <button class="btn btn-sm btn-danger float-right">X</button>
+                                    </a>
+                                <%}%>
                             </div>
                         </div>
                         <div class="col-4 mt-1">
