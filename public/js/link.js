@@ -30,3 +30,17 @@ function submitForm(side){
     }
     form.setAttribute('action',temp);
 }
+
+function showMenu(uuid){
+    var trg = document.querySelector('#trgBtn');
+    var msg = document.getElementById(`${uuid}`);
+    var input = document.querySelector('#msg');
+    var reportForm = document.querySelector('#reportMsgForm');
+    var temp = reportForm.getAttribute('action');
+    var url = `${temp}/report/${uuid}`;
+    reportForm.setAttribute('action',url)
+    console.log(msg.innerHTML);
+    input.value = msg.innerHTML;
+    trg.click();
+}
+

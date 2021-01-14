@@ -67,9 +67,9 @@
                                         <%}else{%>
                                             <strong class="text-b"><%=comment.ownerName%></strong> 
                                         <%}%>
-                                        <span class="text-time-r"><%=moment(comment.createdAt).calendar();%> <i class="fas fa-ellipsis-v ml-3"></i></span>
+                                        <span class="text-time-r"><%=moment(comment.createdAt).calendar();%> <i class="fas fa-ellipsis-v ml-3" onclick="showMenu('<%=comment.uuid%>')"></i></span>
                                     </p> 
-                                    <p><%=comment.msg%></p>
+                                    <p id="<%=comment.uuid%>"><%=comment.msg%></p>
                                 </div>
                             </div>
                         <%}else{%>
@@ -79,16 +79,16 @@
                                         <% if(comment.type == 'private'){%>
                                             <strong class="float-right">
                                                 <i class="fas fa-mask bg-o px-2 py-2 border-circle mr-3 "></i>
-                                                <i class="fas fa-ellipsis-v text-time-r mt-2"></i>
+                                                <i class="fas fa-ellipsis-v text-time-r mt-2" onclick="showMenu('<%=comment.uuid%>')"></i>
                                             </strong> 
                                             
                                         <%}else{%>
                                             <strong class="text-o float-right"><%=comment.ownerName%>
-                                                <i class="fas fa-ellipsis-v ml-3 text-time-r mt-1"></i>
+                                                <i class="fas fa-ellipsis-v ml-3 text-time-r mt-1" onclick="showMenu('<%=comment.uuid%>')"></i>
                                             </strong> 
                                         <%}%>
                                         <span class="text-time-l"><%=moment(comment.createdAt).calendar();%></span> 
-                                    <p><%=comment.msg%></p>
+                                    <p id="<%=comment.uuid%>"><%=comment.msg%></p>
                                 </div>
                             </div>
                         <%}%>
@@ -112,6 +112,36 @@
         <!-- ROW 4 / -->
     </div>
 </div>
+<button type="button" class="btn btn-primary d-none" id='trgBtn' data-toggle="modal" data-target="#reportMsg">
+    Popup    
+</button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="reportMsg" tabindex="-1" role="dialog" aria-labelledby="reportMsgLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="reportMsgLabel">Report Message</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="/topic/room/<%=topic.uuid%>" method="post" id="reportMsgForm">
+              <div class="form-group">
+                  <label for="msg">Do you want to Report this Message</label>
+                  <input type="text" name="msg" id='msg' class="form-control">
+              </div>
+              <div class="text-center">
+                  <button class="btn bg-b text-w hv-w" >Report</button>
+              </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
     $(window).on('load', function() {
