@@ -66,6 +66,11 @@
                                             </strong> 
                                         <%}else{%>
                                             <strong class="text-b"><%=comment.ownerName%></strong> 
+                                            <%if(user.uuid != comment.owner){%>
+                                                <a href="/user/msg/<%=comment.owner%>?redirect=<%=topic.uuid%>">
+                                                    <i class="fas fa-comments text-b ml-3"></i>
+                                                </a>
+                                            <%}%>
                                         <%}%>
                                         <span class="text-time-r"><%=moment(comment.createdAt).calendar();%> <i class="fas fa-ellipsis-v ml-3" onclick="showMenu('<%=comment.uuid%>')"></i></span>
                                     </p> 
@@ -84,7 +89,12 @@
                                             
                                         <%}else{%>
                                             <strong class="text-o float-right"><%=comment.ownerName%>
-                                                <i class="fas fa-ellipsis-v ml-3 text-time-r mt-1" onclick="showMenu('<%=comment.uuid%>')"></i>
+                                                <%if(user.uuid != comment.owner){%>
+                                                    <a href="/user/msg/<%=comment.owner%>?redirect=<%=topic.uuid%>">
+                                                        <i class="fas fa-comments ml-3 text-o"></i>
+                                                    </a>    
+                                                <%}%>
+                                                <i class="fas fa-ellipsis-v ml-4 text-time-r mt-1" onclick="showMenu('<%=comment.uuid%>')"></i>
                                             </strong> 
                                         <%}%>
                                         <span class="text-time-l"><%=moment(comment.createdAt).calendar();%></span> 
