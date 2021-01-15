@@ -35,7 +35,7 @@
                             </div>
                             <div class="col-3">
                                 <div class="form-group mt-2">
-                                    <input type="checkbox" name="type" id="type" checked>
+                                    <input type="checkbox" name="type" id="type">
                                     <label for="type">Private</label>
                                 </div>
                             </div>
@@ -98,7 +98,7 @@
                                             </strong> 
                                         <%}%>
                                         <span class="text-time-l"><%=moment(comment.createdAt).calendar();%></span> 
-                                    <p id="<%=comment.uuid%>"><%=comment.msg%></p>
+                                    <p id="<%=comment.uuid%>" class="float-right"><%=comment.msg%></p>
                                 </div>
                             </div>
                         <%}%>

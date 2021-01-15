@@ -33,7 +33,7 @@
                             <div class="col-12  py-2 ">
                                 <div class="row">
                                     <div class="col-2"><i class="fas fa-mask bg-b px-2 py-2 border-circle text-w"></i></div>
-                                    <div class="col-10"><p><%=message.prev%></p></div>
+                                    <div class="col-10"><p><strong><%=message.prev%></strong></p></div>
                                 </div>    
                                 <p class="text-time-l"><%=moment(Number(message.prevTime)).calendar();%></p>
                             </div>
@@ -42,7 +42,7 @@
                     <div class="row">
                         <div class="col-12  py-2 ">
                             <div class="row">
-                                <div class="col-10"><p class="float-right"><%=message.current%></p></div>
+                                <div class="col-10"><p class="float-right"> <strong><%=message.current%></strong></p></div>
                                 <div class="col-2"><i class="fas fa-mask bg-o text-w px-2 py-2 border-circle float-right"></i></div>
                             </div>    
                             <p class="text-time-r"><%=moment(Number(message.currentTime)).calendar();%></p>
