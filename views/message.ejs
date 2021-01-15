@@ -17,6 +17,9 @@
         <div class="row">
             <div class="col-12 px-2 py-3 ">
                 <span class="h5 text-b"><%=receiver.name%></span>
+                <a href="/user/msg/list">
+                    <span class="float-right text-b">Back</span>
+                </a>
                 <br>
             </div>
         </div>
@@ -50,15 +53,28 @@
                 
                 <div class="row mt-2">
                     <div class="col-12">
-                        <% var url = `/user/msg/update/${message.uuid}` %>
-                        <% if(!message){%>
-                            <% url = `/user/msg/add/s/${user.uuid}/r/${receiver.uuid}` %>
-                        <% } %>
-                        <%if(message.sender == user.uuid){%>
-                            <div class="text-center">
-                                <h6 class="text-b">... Waiting for Reply ...</h6>
-                            </div>
-                        <%}else{%>
+                        <% var url = `/user/msg/add/s/${user.uuid}/r/${receiver.uuid}` %>
+                        <% if(message){%>
+                            <% url = `/user/msg/update/${message.uuid}/s/${user.uuid}` %>
+                            <%if(message.sender == user.uuid){%>
+                                <div class="text-center">
+                                    <h6 class="text-b">... Waiting for Reply ...</h6>
+                                </div>
+                            <%}else{%>
+                                <form action="<%=url%>" method="post">
+                                    <div class="row">
+                                        <div class="col-10">
+                                            <input type="text" class="form-control block" placeholder="Add Message" required maxlength="100" name='msg'>
+                                        </div>
+                                        <div class="col-2">
+                                            <div class="text-center">
+                                                <button class="btn"><i class="fas h5 fa-paper-plane text-b"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            <%}%>
+                        <% }else{ %>
                             <form action="<%=url%>" method="post">
                                 <div class="row">
                                     <div class="col-10">
