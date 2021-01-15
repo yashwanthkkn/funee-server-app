@@ -4,8 +4,8 @@ async function copyText(id){
     var copyTextarea = document.getElementById("share");
     const shareData = {
         title: 'Funee.in',
-        text: 'Send Your Friend a Secret Message',
-        url: copyTextarea.value,
+        text: 'Funee : Send Your Friend a Secret Message/n Click the link below/n',
+        url: copyTextarea.value
     }
     try {
         await navigator.share(shareData)
