@@ -2,9 +2,10 @@
 
 async function copyText(id){
     var copyTextarea = document.getElementById("share");
+    var uname = document.getElementById('uname').innerText;
     const shareData = {
         title: 'Funee.in',
-        text: 'Funee : Send Your Friend a Secret Message/n Click the link below/n',
+        text: `Send Your Friend ${uname} a Secret Message`,
         url: copyTextarea.value
     }
     try {

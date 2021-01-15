@@ -54,6 +54,7 @@
                                     </a>
                                 </div>
                                 <input type="text" name="sharable" class="form-control" id="share" value="https://funee.herokuapp.com/public/link/<%=link.uuid%>" readonly>
+                                <span id='uname' class="d-none">Yashwanth</span>
                             </div>
                             <div class="col-12 mt-3">
                                 <div class="row">
@@ -66,7 +67,7 @@
                                     </div>
                                     <div class="col-6">
                                         <div class="text-center">
-                                            <button class="btn bg-o text-w" id="shareBtn" onclick="copyText('hello')">Copy Link</button>
+                                            <button class="btn bg-o text-w" id="shareBtn" onclick="copyText('hello')">Share Link</button>
                                         </div>
                                     </div>
                                 </div>
@@ -98,7 +99,7 @@
                       <div class="form-group">
                           <input type="text" name="caption" id="caption" placeholder="Eg. What do you think about me" class="form-control">
                       </div>
-                      <div class="text-center">
+                      <div class="text-center mt-2">
                         <small class="text-o">People will see this while adding comments</small>
                     </div>
                       <div class="form-group">
