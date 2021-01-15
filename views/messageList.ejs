@@ -25,12 +25,12 @@
                                 <%if(user.uuid == msg.sender){%>
                                     <div class="text-b">You</div>
                                     <div class="mt-2">
-                                        <span class="text-time-l"><%=msg.current%></span><span class="text-time-r"><%=moment(Number(msg.currentTime)).calendar();%></span>
+                                        <span class="text-time-l">How You doing ?</span><span class="text-time-r">12.33 pm</span>
                                     </div>
                                 <%}else{%>
                                     <div class="text-b"><%=msg.receiverName%></div>
                                     <div class="mt-2">
-                                        <span class="text-dark"><%=msg.current%></span><span class="text-time-r"><%=moment(Number(msg.currentTime)).calendar();%></span>
+                                        <span class="text-dark">How You doing ?</span><span class="text-time-r">12.33 pm</span>
                                     </div>
                                 <%}%>
                             </div>
