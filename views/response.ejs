@@ -25,8 +25,7 @@
                         <div class="col-12">
                             <div class="card px-3 py-2 mt-3">    
                                 <p class="strong"><%=res.response%></p>
-                                <% var time = moment(res.time).calendar();%>
-                                <p class="text-left text-time-l"><%=time%></p>
+                                <p class="text-left text-time-l"><%=moment(res.time).calendar();%></p>
                             </div>
                         </div>
                    <% }) %>
