@@ -1,0 +1,51 @@
+<%- include("partials/header") %>
+<%- include("partials/nav") %>
+
+<div class="container">
+    <div class="content-box px-3 py-4">
+        <div class="row">
+            <div class="col-6 h3 text-o">
+            Messages
+            </div>
+            <div class="col-6 text-o h5 text-right">
+                <a href="" class="text-o">
+                    <i class="fas fa-sync"></i>
+                </a>
+            </div>
+        </div>
+        <!-- ROW 2 -->
+        <!-- ROW 3 -->
+        <div class="row mt-3">
+
+            <%if(messages.length){%>
+                <%messages.forEach(msg=>{%>
+                    <div class="col-12 mt-2">
+                        <a href="/user/msg/room/<%=msg.uuid%>">
+                            <div class="px-2 py-2 card">
+                                <%if(user.uuid == msg.sender){%>
+                                    <div class="text-b">You</div>
+                                    <div class="mt-2">
+                                        <span class="text-time-l">How You doing ?</span><span class="text-time-r">12.33 pm</span>
+                                    </div>
+                                <%}else{%>
+                                    <div class="text-b"><%=msg.receiverName%></div>
+                                    <div class="mt-2">
+                                        <span class="text-dark">How You doing ?</span><span class="text-time-r">12.33 pm</span>
+                                    </div>
+                                <%}%>
+                            </div>
+                        </a>
+                    </div>
+                <%})%>
+            <%}else{%>
+                <div class="col-12 mt-2">
+                    <div class="text-center">
+                        <h5 class="text-b">You don't have any messages yet</h5>
+                    </div>
+                </div>
+            <%}%>
+        </div>
+        <!-- ROW 3 / -->
+    </div>
+</div>
+<%- include("partials/footer") %>
