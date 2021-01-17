@@ -23,6 +23,14 @@
           <li class="nav-item active mr-5">
             <a class="nav-link text-w hv-w" href="/user/profile">Profile</a>
           </li>
+          <%if(user.claim == 'admin'){%>
+            <li>
+              <a class="nav-link text-w hv-w" href="/user/admin/topics">Admin Topics</a>
+            </li>
+            <li>
+              <a class="nav-link text-w hv-w" href="/user/admin/msg">Admin Messages</a>
+            </li>
+          <%}%>
           <li class="nav-item mr-5">
             <a class="nav-link text-w" href="/logout">Logout</a>
           </li>
