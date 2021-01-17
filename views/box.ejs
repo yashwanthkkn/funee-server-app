@@ -31,17 +31,17 @@
                     </div>   
                 </div>
             </div>
+            <%var i = 1%>
             <%topics.forEach(topic=>{%>
                 <div class="card col-12 mt-4">
                     <div class="row px-2 py-2 text-center">
-                        <div class="col-6">
+                        <div class="col-8">
                             <div class="text-left h5 text-b ml-3">
-                               <strong><%=topic.title%></strong> 
+                               <strong><%=`#${i++} ${topic.title}`%></strong> 
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-4">
                             <div class="mr-0 text-b">
-                                <span><%=topic.total%> Comments</span>
                                 <%if(topic.owner == user.uuid){%>
                                     <a href="/topic/removeTopic/<%=topic.uuid%>">
                                         <button class="btn btn-sm btn-danger float-right">X</button>
@@ -49,11 +49,11 @@
                                 <%}%>
                             </div>
                         </div>
-                        <div class="col-4 mt-1">
+                        <div class="col-4 mt-2">
                                 <span class="bg-w text-o rounded px-1 my-2 mr-1"><%=topic.side1Count%></span>
                                 <p class="bg-o text-w rounded"><%=topic.side1%></p>
                         </div>
-                        <div class="col-4 mt-1">
+                        <div class="col-4 mt-2">
                             <%if(user){%>
                                 <a href="/topic/room/<%=topic.uuid%>">
                                     <button class="btn bg-b text-w hv-w">View Room</button>
@@ -64,7 +64,7 @@
                                 </a>
                             <%}%>
                         </div>
-                        <div class="col-4 mt-1">
+                        <div class="col-4 mt-2">
                             <span class="bg-w text-o rounded px-1 my-2 mr-1"><%=topic.side2Count%></span>
                             <p class="bg-o text-w rounded"><%=topic.side2%></p>
                         </div>
