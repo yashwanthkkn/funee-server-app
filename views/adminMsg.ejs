@@ -1,0 +1,53 @@
+<%- include("partials/header") %>
+<%- include("partials/nav") %>
+<div class="container">
+    <div class="content-box px-3 py-4">
+        <div class="row">
+            <div class="col-8 h3 text-o">
+                Reported Comments
+            </div>
+            <div class="col-4  mt-2 text-center">
+                <a href="/user/home" class="text-b mt-2">
+                    <span class="mt-2">Back</span> 
+                </a>
+            </div>
+        </div>
+        <!-- ROW 3 / -->
+        <!-- ROW 4  -->
+        <div class="row">
+            <div class="col-12 mt-3">
+                <div class="row chat" id="chat">
+                    <%comments.forEach(comment=>{%>
+                            <div class="col-12 mt-3">
+                                <div class="card px-2 py-2 bg-w"> 
+                                    <%if(user.claim == 'admin'){%>
+                                        <a href="/user/admin/removeMsg/<%=comment.uuid%>">
+                                            <button class="btn btn-sm btn-danger float-right">X</button>
+                                        </a>
+                                    <%}%>
+                                    <p class="text-w">
+                                            <strong>
+                                                <i class="fas fa-mask bg-b px-2 py-2 border-circle"></i>
+                                            </strong> 
+                                            <strong class="text-b"><%=comment.ownerName%></strong> 
+                                    </p> 
+                                    <p id="<%=comment.uuid%>"><%=comment.msg%></p>
+                                </div>
+                            </div>
+                    <%})%>
+                </div>
+            </div>
+        </div>
+        <!-- ROW 4 / -->
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(window).on('load', function() {
+        var chatEl = document.getElementById("chat");
+        chatEl.scrollTop = chatEl.scrollHeight;
+    });
+</script>
+
+
+<%- include("partials/footer") %>
