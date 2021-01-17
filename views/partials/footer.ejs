@@ -31,6 +31,7 @@ function submitForm(side){
     var input = document.querySelector('#comment')
     var temp = form.getAttribute('action') 
     if(input.value){
+        var time = Date.now();
         var url = form.getAttribute('action') + `/${side}`;
         form.setAttribute('action',url);
         form.submit();
