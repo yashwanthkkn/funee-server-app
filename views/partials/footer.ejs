@@ -8,12 +8,13 @@
     });
   });
 
-async function shareInvite(name){
+async function shareInvite(name,id){
     let shareData = {
         title: 'Funee.in',
         text: `Join the Fun Discussion on *${name}* Now !`,
-        url: window.location.href   
+        url: `https://app.funee.in/public/room/${id}`   
     }
+    console.log(shareData.url);
     try {
         await navigator.share(shareData)
       } catch(err) {
