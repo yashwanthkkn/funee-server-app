@@ -17,10 +17,19 @@
                             <a href="/public/link/responses/<%=link.uuid%>">
                                 <button class="btn bg-b text-w hv-w my-2">View Other Responses</button>
                             </a>
+                            <br>
+                            <span class="text-o">OR</span> 
                         </div>
+                        
                     <%}%>
-                    <h4 class="text-b text-center">Let's find out what people want to tell you</h4>
-                    <h5 class="mt-5 text-b text-center"> CLICK THE LINK BELOW | GET YOUR LINK</h5>
+                    
+                    <div class="text-center">
+                        <a href="/public/home/">
+                            <button class="btn bg-b text-w hv-w my-2">View Topic Discussions</button>
+                        </a>
+                    </div>
+                    <h5 class="text-b text-center">Let's find out what people want to tell you</h5>
+                    <h6 class="mt-5 text-b text-center"> CLICK THE LINK BELOW | GET YOUR LINK</h6>
                 <%}else{%>
                     <h5 class="text-b text-center"> <span id='uname'><%=link.name%></span> 's Secret Chamber</h5>
                     <h6 class="text-b text-center"><%=link.caption%></h6>
