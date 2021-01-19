@@ -23,14 +23,14 @@
                         <a href="/user/msg/room/<%=msg.uuid%>">
                             <div class="px-2 py-2 card">
                                 <%if(user.uuid == msg.sender){%>
-                                    <div class="text-b">You</div>
+                                    <div class="text-b"><%=msg.receiverName%></div>
                                     <div class="mt-2">
                                         <span class="text-time-l"><%=msg.current%></span><span class="text-time-r"><%=moment(Number(msg.currentTime)).calendar();%></span>
                                     </div>
                                 <%}else{%>
                                     <div class="text-b"><%=msg.senderName%></div>
                                     <div class="mt-2">
-                                        <span class="text-dark"><%=msg.current%></span><span class="text-time-r"><%=moment(Number(msg.currentTime)).calendar();%></span>
+                                        <span class="text-dark"><strong><%=msg.current%></strong> </span><span class="text-time-r"><%=moment(Number(msg.currentTime)).calendar();%></span>
                                     </div>
                                 <%}%>
                             </div>
